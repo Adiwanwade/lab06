@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return "<h1 >Hello from Aditya </h1>";
+// });
+// Route::get('/aboutus', function () {
+//     return view('aboutus');
+// });
+Route::view('/aboutus','aboutus',[
+    'name'=> 'Aditya',
+]);
+Route::get('/', function (){
     return view('welcome');
 });
+Route::get('/person/{name}', function ($name) {
+    return "The name is $name";
+})->name('person.index');
